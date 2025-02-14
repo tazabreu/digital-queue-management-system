@@ -147,4 +147,86 @@ Structured logs ensure that errors are indexed and processed efficiently.
 ## 🎯 Final Thoughts  
 This **modular monolithic design** ensures simplicity, scalability, and future-proofing while following **engineering excellence** principles.  
 
-🔥 Ready for implementation! Let’s ship it. 🚀  
+🔥 Ready for implementation! Let's ship it. 🚀  
+
+## Project Structure
+
+```
+src/
+├── admin-panel/       # Admin dashboard and management features
+├── customer-portal/   # Customer-facing queue operations
+├── queue-management/  # Core queue management logic
+├── notification-system/ # Notification handling
+├── websocket/        # Real-time updates
+├── event-bus/        # Internal event communication
+├── types/           # Shared TypeScript interfaces
+└── __tests__/       # Test files
+```
+
+## Features
+
+- Customer ticket generation and queue position tracking
+- Real-time queue status updates via WebSocket
+- Admin dashboard for queue management
+- Notification system for customer alerts
+- Internal event bus for module communication
+
+## Getting Started
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Run tests:
+   ```bash
+   npm test
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+## API Endpoints
+
+### Customer Portal
+- POST `/api/customer/ticket` - Get a new ticket
+- GET `/api/customer/position/:ticketId` - Check position in queue
+
+### Queue Management
+- POST `/api/queue/queues` - Create a new queue
+- GET `/api/queue/queues/:queueId` - Get queue status
+- PUT `/api/queue/queues/:queueId` - Update queue status
+
+### Admin Panel
+- GET `/api/admin/dashboard` - Get dashboard statistics
+- GET `/api/admin/staff` - Manage staff
+- GET `/api/admin/settings` - System settings
+
+## WebSocket Events
+
+- `QUEUE_UPDATE` - Real-time queue status updates
+- `CUSTOMER_NOTIFICATION` - Customer notifications
+- `ADMIN_ACTION` - Administrative actions
+
+## Development
+
+This project uses TypeScript and follows a modular monolith architecture. Each module is self-contained but can communicate with others through the event bus.
+
+## Deployment
+
+The application can be deployed to AWS Lambda or Google Cloud Functions. Use the Makefile commands for deployment:
+
+```bash
+make deploy
+```
+
+## License
+
+ISC
